@@ -17,7 +17,7 @@ class room_info(Serializable):
     
 class UniversalMessageEvent(PluginEvent):
     def __init__(self, message, sender_info, room_info, platform: str):
-        super().__init__('UniversalChatMessage')
+        super().__init__('UniversalChatMessage') # 下游要监听的事件名称
         self.message = message
         self.sender_info = sender_info
         self.room_info = room_info
