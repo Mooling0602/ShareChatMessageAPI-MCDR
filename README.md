@@ -11,7 +11,7 @@ Python和MCDReforged。
 
 ## 原理
 - 使用MCDReforged提供的`ServerInterface.psi().dispatch_event(...)`设计一个事件派发器，消息互通插件统一使用这个派发器在MCDReforged中派发聊天消息事件。
-> 这个仓库将致力于开发一个API类型的插件，供其他开发者完成这个工作。目前可以参考 [demo](https://github.com/Mooling0602/ShareChatMessageAPI-MCDR/blob/main/demo.py) 中的`event_dispatcher`函数。
+> 这个仓库将致力于开发一个API类型的插件，供其他开发者完成这个工作。请参考插件源码。
 - 消息互通插件乃至更下游的子插件使用MCDReforged提供的事件监听器（`ServerInterface.psi().register_event_listener(...)`）解析聊天消息事件，并转发自己的消息到游戏中、转发其他平台的消息到自己所支持平台的群聊、聊天室中去，实现不同平台之间和Minecraft的聊天消息共享。
 > 统一的分发平台理论上是可行的，但笔者不认为做这样一个平台有什么太大意义，应该由各家插件自行完成分发，以避免发生冲突
 
