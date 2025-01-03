@@ -7,8 +7,9 @@ psi = ServerInterface.psi()
 
 def on_load(server: PluginServerInterface, prev_module):
     config = load_config(server)
-    if config["enable_test"]:
+    if config["enable"]["listen_only"]:
         server.register_event_listener('UniversalChatMessage', debug)
+    if config["enable"]["test"]:
         server.register_command(
             Literal('!!scm_api')
             .then(
