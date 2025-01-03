@@ -1,0 +1,14 @@
+{
+	"id": "scm_api",
+	"version": "0.0.1",
+	"name": "ShareChatMessageAPI",
+	"description": {
+		"en_us": "Share your platform's messages to other plugins!",
+		"zh_cn": "聊天消息共享接口。"
+	},
+	"dependencies": {
+		"mcdreforged": ">=2.1.0"
+	},
+	"author": "Mooling0602",
+    "link": "https://github.com/Mooling0602/ShareChatMessageAPI-MCDR"
+}
