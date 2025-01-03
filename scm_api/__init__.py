@@ -1,20 +1,23 @@
 from mcdreforged.api.all import *
 from .bases import UniversalMessageEvent
+from .config import load_config
 
 psi = ServerInterface.psi()
 
 
 def on_load(server: PluginServerInterface, prev_module):
-    server.register_event_listener('UniversalChatMessage', debug)
-    server.register_command(
-        Literal('!!scm_api')
-        .then(
-            Literal('test')
-            .runs(
-                lambda src: test(src)
+    config = load_config(server)
+    if config["enable_test"]:
+        server.register_event_listener('UniversalChatMessage', debug)
+        server.register_command(
+            Literal('!!scm_api')
+            .then(
+                Literal('test')
+                .runs(
+                    lambda src: test(src)
+                )
             )
         )
-    )
 
 # 你可以调用这个派发任意类型的事件，不仅仅是聊天消息
 # 用这个方法派发的事件是非预期的，你只能在自己的插件中使用或者自行定义自己的规范
