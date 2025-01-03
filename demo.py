@@ -13,7 +13,7 @@ class sender_info(Serializable):
 
 class room_info(Serializable):
     id: str # Matrix 房间 ID 或 QQ 群号码
-    display_name: str # Matrix 房间显示名称或 QQ 群名称
+    name: str # Matrix 房间显示名称或 QQ 群名称
     
 class UniversalMessageEvent(PluginEvent):
     def __init__(self, message, sender_info, room_info, platform: str):
