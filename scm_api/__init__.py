@@ -1,5 +1,5 @@
 from mcdreforged.api.all import *
-from . import UniversalMessageEvent
+from .bases import UniversalMessageEvent
 
 psi = ServerInterface.psi()
 
@@ -31,7 +31,7 @@ def event_dispatcher(UniversalMessageEvent, *args, **kwargs):
 
 def test(src: CommandSource):
     # 若不导入，则需要自行构建，可能导致消息事件中的数据不规范。
-    from bases import message, sender_info, room_info
+    from scm_api.bases import message, sender_info, room_info
     message.content = "这是一条测试消息"
     message.type = "text"
     sender_info.id = "12345678"
@@ -51,7 +51,7 @@ def debug(server: PluginServerInterface, message, sender_info, room_info, platfo
     else:
         pass
     server.logger.info(
-        f"----- Debug Info -----" + "\n" +
+        f"Debug Info" + "\n" +
         f"Message - content: {message.content} - type: {message.type}" + "\n" +
         f"Sender info - id: {sender_info.id} - name: {sender_info.name}" + "\n" +
         f"Room info - id: {room_info.id} - name: {room_info.name}" + "\n" +
